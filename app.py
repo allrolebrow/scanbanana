@@ -15,11 +15,223 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────────────────────
-# CSS (sama seperti sebelumnya, saya singkat untuk menghemat space)
+# CSS (saya singkat untuk menghemat space, tapi kamu bisa copy dari kode sebelumnya)
 # ─────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-/* CSS sama seperti sebelumnya */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
+    background: #111312 !important;
+    color: #ECE9E1 !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+#MainMenu, footer, header {visibility: hidden;}
+
+.block-container {
+    padding-top: 1.8rem !important;
+    padding-bottom: 2rem !important;
+    max-width: 1250px !important;
+}
+
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif !important;
+    color: #F4F1EA !important;
+    letter-spacing: -0.02em;
+}
+
+.hero-wrap {
+    background: linear-gradient(135deg, #171917 0%, #141614 100%);
+    border: 1px solid #232623;
+    border-radius: 24px;
+    padding: 2.6rem 2.4rem;
+    margin-bottom: 1.4rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+}
+
+.kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #B7C96B;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    line-height: 1.05;
+    font-weight: 500;
+    color: #F3F0E8;
+    margin-bottom: 0.9rem;
+}
+
+.hero-title em {
+    color: #C6D96A;
+    font-style: italic;
+}
+
+.hero-desc {
+    color: #A7A89E;
+    font-size: 0.98rem;
+    line-height: 1.8;
+    max-width: 700px;
+}
+
+.metric-card {
+    background: #171917;
+    border: 1px solid #232623;
+    border-radius: 18px;
+    padding: 1.1rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.14);
+}
+.metric-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    color: #F4F1EA;
+    line-height: 1;
+}
+.metric-label {
+    margin-top: 0.35rem;
+    font-size: 0.75rem;
+    color: #8C8F84;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+}
+
+.card {
+    background: #171917;
+    border: 1px solid #232623;
+    border-radius: 22px;
+    padding: 1.2rem 1.2rem 1rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.14);
+    height: 100%;
+}
+
+.card-title {
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #8C8F84;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.card-sub {
+    font-size: 1rem;
+    color: #ECE9E1;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.status-box {
+    border-radius: 18px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1rem;
+    border: 1px solid;
+}
+
+.status-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.status-sub {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+.tip-box {
+    background: #141614;
+    border: 1px solid #232623;
+    border-left: 4px solid #C6D96A;
+    border-radius: 14px;
+    padding: 1rem 1rem;
+    color: #B9B8AF;
+    line-height: 1.7;
+    font-size: 0.92rem;
+}
+
+.empty-box {
+    border: 1px dashed #2B2E2A;
+    border-radius: 18px;
+    padding: 2.4rem 1.2rem;
+    text-align: center;
+    color: #7F8277;
+    background: #141614;
+}
+
+.stButton > button {
+    width: 100%;
+    border-radius: 14px !important;
+    border: 1px solid #B9CD63 !important;
+    background: #C6D96A !important;
+    color: #161813 !important;
+    font-weight: 700 !important;
+    height: 44px !important;
+    font-size: 0.95rem !important;
+    transition: all 0.2s ease !important;
+}
+.stButton > button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+[data-testid="stDownloadButton"] > button {
+    width: 100%;
+    border-radius: 14px !important;
+    background: transparent !important;
+    color: #D8D5CD !important;
+    border: 1px solid #31342F !important;
+    height: 42px !important;
+}
+[data-testid="stDownloadButton"] > button:hover {
+    border-color: #B9CD63 !important;
+    color: #F4F1EA !important;
+}
+
+[data-testid="stFileUploader"] {
+    border-radius: 16px !important;
+    border: 1px dashed #343832 !important;
+    background: #141614 !important;
+}
+
+[data-testid="stTabs"] [role="tablist"] {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+[data-testid="stTabs"] [role="tab"] {
+    border-radius: 999px !important;
+    padding: 0.55rem 1.1rem !important;
+    background: #171917 !important;
+    border: 1px solid #252824 !important;
+    color: #9A9D92 !important;
+}
+[data-testid="stTabs"] [aria-selected="true"] {
+    color: #161813 !important;
+    background: #C6D96A !important;
+    border-color: #C6D96A !important;
+}
+
+[data-testid="stImage"] img {
+    border-radius: 18px !important;
+    border: 1px solid #232623 !important;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #232623;
+    margin: 1.5rem 0;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -142,7 +354,7 @@ if model is None:
     st.stop()
 
 # ─────────────────────────────────────────────────────────────
-# HERO (sederhanakan untuk menghemat space)
+# HERO
 # ─────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="hero-wrap">
@@ -153,6 +365,31 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
+
+m1, m2, m3 = st.columns(3)
+with m1:
+    st.markdown("""
+    <div class="metric-card">
+        <div class="metric-value">3</div>
+        <div class="metric-label">Kelas</div>
+    </div>
+    """, unsafe_allow_html=True)
+with m2:
+    st.markdown("""
+    <div class="metric-card">
+        <div class="metric-value">YOLOv8n</div>
+        <div class="metric-label">Model</div>
+    </div>
+    """, unsafe_allow_html=True)
+with m3:
+    st.markdown("""
+    <div class="metric-card">
+        <div class="metric-value">Realtime</div>
+        <div class="metric-label">Inferensi</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────
 # CONFIG
@@ -175,6 +412,12 @@ with tab1:
     L, R = st.columns(2, gap="large")
 
     with L:
+        st.markdown("""
+        <div class="card">
+            <div class="card-title">Input</div>
+            <div class="card-sub">Upload foto pisang</div>
+        """, unsafe_allow_html=True)
+
         uploaded = st.file_uploader(
             "Upload gambar",
             type=["jpg", "jpeg", "png", "webp", "bmp"],
@@ -185,9 +428,25 @@ with tab1:
         if uploaded:
             pil = Image.open(uploaded).convert("RGB")
             st.image(pil, use_container_width=True)
+            st.markdown("<div style='height:.75rem'></div>", unsafe_allow_html=True)
             run = st.button("Analisis Gambar", use_container_width=True)
+        else:
+            st.markdown("""
+            <div class="empty-box">
+                <h4 style="margin-bottom:.4rem;">Belum ada gambar</h4>
+                <p>Format yang didukung: JPG, JPEG, PNG, WebP, BMP.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+        st.markdown("</div>", unsafe_allow_html=True)
 
     with R:
+        st.markdown("""
+        <div class="card">
+            <div class="card-title">Output</div>
+            <div class="card-sub">Hasil deteksi</div>
+        """, unsafe_allow_html=True)
+
         if uploaded and run:
             with st.spinner("Menganalisis gambar..."):
                 arr = np.array(pil)
@@ -196,6 +455,7 @@ with tab1:
                 dets = parse(res)
 
             st.image(ann, use_container_width=True)
+            st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
             render_result(dets, t)
 
             if dets:
@@ -209,21 +469,48 @@ with tab1:
                     use_container_width=True,
                 )
         else:
-            st.info("Upload gambar lalu klik tombol analisis.")
+            st.markdown("""
+            <div class="empty-box">
+                <h4 style="margin-bottom:.4rem;">Hasil akan muncul di sini</h4>
+                <p>Upload gambar lalu klik tombol analisis.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+        st.markdown("</div>", unsafe_allow_html=True)
 
 # ── TAB 2 ──
 with tab2:
     L2, R2 = st.columns(2, gap="large")
 
     with L2:
+        st.markdown("""
+        <div class="card">
+            <div class="card-title">Kamera</div>
+            <div class="card-sub">Ambil foto langsung</div>
+        """, unsafe_allow_html=True)
+
         cam = st.camera_input("Ambil gambar", label_visibility="collapsed")
 
         if cam:
+            st.markdown("<div style='height:.75rem'></div>", unsafe_allow_html=True)
             cam_run = st.button("Analisis Foto", use_container_width=True, key="cam_btn")
         else:
             cam_run = False
+            st.markdown("""
+            <div class="empty-box">
+                <p>Pastikan pisang terlihat jelas, pencahayaan cukup, dan latar belakang tidak terlalu ramai.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+        st.markdown("</div>", unsafe_allow_html=True)
 
     with R2:
+        st.markdown("""
+        <div class="card">
+            <div class="card-title">Output</div>
+            <div class="card-sub">Hasil deteksi kamera</div>
+        """, unsafe_allow_html=True)
+
         if cam and cam_run:
             with st.spinner("Menganalisis foto..."):
                 pil2 = Image.open(cam).convert("RGB")
@@ -233,6 +520,24 @@ with tab2:
                 dets2 = parse(res2)
 
             st.image(ann2, use_container_width=True)
+            st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
             render_result(dets2, t2)
         else:
-            st.info("Ambil foto lalu klik tombol analisis.")
+            st.markdown("""
+            <div class="empty-box">
+                <h4 style="margin-bottom:.4rem;">Belum ada hasil</h4>
+                <p>Ambil foto lalu klik tombol analisis.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+        st.markdown("</div>", unsafe_allow_html=True)
+
+# ─────────────────────────────────────────────────────────────
+# FOOTER
+# ─────────────────────────────────────────────────────────────
+st.markdown("<hr>", unsafe_allow_html=True)
+st.markdown("""
+<div style="text-align:center; color:#6E7268; font-size:0.9rem; padding-top:0.4rem;">
+    BananaLens · Aal Ismu Halat - Johannes Paulus Manik  - Corry Amelia Br Pasaribu
+</div>
+""", unsafe_allow_html=True)
