@@ -1,4 +1,8 @@
-opencv-python-headless
 streamlit
 numpy
 pillow
+ultralytics
+torch
+torchvision
+matplotlib
+pandas
