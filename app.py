@@ -455,9 +455,9 @@ with tab1:
 
         if uploaded and run:
             with st.spinner("Menganalisis gambar..."):
-                arr = np.array(pil)  # langsung dalam format RGB
+                arr = np.array(pil)
                 res, t = infer(model, arr, conf_thresh, img_size)
-                ann = annotate(res)  # sudah dalam format RGB
+                ann = annotate(res)
                 dets = parse(res)
 
             st.image(ann, use_container_width=True)
@@ -520,9 +520,9 @@ with tab2:
         if cam and cam_run:
             with st.spinner("Menganalisis foto..."):
                 pil2 = Image.open(cam).convert("RGB")
-                arr2 = np.array(pil2)  # langsung dalam format RGB
+                arr2 = np.array(pil2)
                 res2, t2 = infer(model, arr2, conf_thresh, img_size)
-                ann2 = annotate(res2)  # sudah dalam format RGB
+                ann2 = annotate(res2)
                 dets2 = parse(res2)
 
             st.image(ann2, use_container_width=True)
